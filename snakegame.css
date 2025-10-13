@@ -1,6 +1,14 @@
 html {
     font-size: 100%;
 }
+body {
+	margin: 0px auto auto auto;
+	width: 100%;
+	position: relative;
+	background-color: white;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+}
 body > header nav {
 	display: block;
 	text-align: right;
@@ -9,7 +17,6 @@ body > header nav {
 	background-color: #b5cc88;
 	border-bottom: 2px solid #0084bf;
 }
-
 body > header > nav ul li {
 	display: inline;
 	padding-right: 25px;
