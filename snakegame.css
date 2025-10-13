@@ -1,12 +1,13 @@
 @font-face {
-    font-family: "Comfortaa";
-    src: url("/fonts/Comfortaabold.ttf");
+    font-family: Comfortaa;
+    src: url("/fonts/Comfortaabold.ttf"), 
+         local("/Comfortaabold.ttf") format("truetype");
 }
 html {
     font-size: 100%;
 }
 body {
-    font-family: "Comfortaa", Roboto, Arial, sans-serif;
+    font-family: Comfortaa, Roboto, Arial, sans-serif;
 	margin: 0px auto auto auto;
 	width: 100%;
 	position: relative;
@@ -25,6 +26,6 @@ body > header nav {
 body > header > nav ul li {
 	display: inline;
 	padding-right: 25px;
-	font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;
+    font-family: Comfortaa, Arial, sans-serif;
 	color: #EFEFEF;
 }
