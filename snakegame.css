@@ -20,6 +20,13 @@ body > header nav {
 
 header { 
   text-align: center; 
+  padding-inline-start: 0%;
+}
+header nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 nav a {
   display: block;
