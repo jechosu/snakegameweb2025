@@ -1,9 +1,9 @@
 html {
     font-size: 100%;
-	background-color: #0084bf;
 }
+/* Declaring font size and the Comfortaa font for text */
 body {
-    font-family: "Comfortaa", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Comfortaa", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 	margin: 0px auto auto auto;
 	width: 100%;
 	position: relative;
@@ -11,11 +11,19 @@ body {
 	border-left: 1px solid gray;
 	border-right: 1px solid gray;
 }
+/* Declaring font sizes for paragraph and header text, see snakehistory.html for example. */
+p {
+  font-size: larger;
+}
+h1 {
+  font-size: xx-large;
+}
+
+/* Header Navigation Styles, this posed a challenge as a 40px padding was added to the nav bar due to a missing delcaration.*/
 body > header nav {
   display: flexbox;
   width: 100%;
   background-color: #b5cc88;
-  border-bottom: 2px solid #0084bf;
 }
 
 header { 
@@ -34,6 +42,8 @@ nav a {
   padding: .5rem 0;        
   color: #4a2c82;
 }
+
+/* Upon hovering, navigation text shows an underline to user. */
 nav a:hover {
   text-decoration: underline;
 }
@@ -82,6 +92,8 @@ body > header nav.tabs li {
     margin: 0; Remove default margin 
     padding: 0; Remove default padding 
 */
+
+
 footer {
 	text-align: center;
 	font-family: "Comfortaa", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
