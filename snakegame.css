@@ -99,3 +99,7 @@ footer {
 	font-family: "Comfortaa", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+#WASD {
+  float: right;
+  max-width: 1000px;
+}
