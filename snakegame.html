@@ -15,7 +15,7 @@ Project Members: Jecho Coquilla, Jabez Montano, Brandon Cates, Jayden Barnes, Mi
 <script src="index.js"></script>
 <head>
 
-<body>
+<body onload="resetGame()">
     <header>
         <img src="snake.png" alt="Logo" class="header-logo">
         <nav>
@@ -42,6 +42,19 @@ Project Members: Jecho Coquilla, Jabez Montano, Brandon Cates, Jayden Barnes, Mi
        </ul>
         <p> Eat the food to grow longer and watch out for walls and even yourself!</p>
      </main>
+       <div class="ui">
+    <button onclick="setDirection(0,-1)">Up ↑</button>
+    <button onclick="setDirection(-1,0)">Left ←</button>
+    <button onclick="setDirection(1,0)">Right →</button>
+    <button onclick="setDirection(0,1)">Down ↓</button>
+    <button onclick="resetGame()">Reset</button>
+    <span id="score">Score: 0</span>
+    <span class="hint">Use WASD keys</span>
+  </div>
+
+  <div id="board" aria-label="Snake board" role="grid"></div>
+
+  <script src="snake.js"></script>
 </body>
 
 <footer>
