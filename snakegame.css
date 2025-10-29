@@ -101,5 +101,9 @@ footer {
 
 #WASD {
   float: right;
-  max-width: 1000px;
+  max-width: 1000px;   
+  width: 40%;          
+  margin-right: 3rem;  
+  height: auto;        
+  display: block;
 }
