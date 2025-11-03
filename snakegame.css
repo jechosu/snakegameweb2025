@@ -96,6 +96,7 @@ body > header nav.tabs li {
 
 footer {
 	text-align: center;
+  padding: 20px;
 	font-family: "Comfortaa", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
