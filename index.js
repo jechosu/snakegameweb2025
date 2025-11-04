@@ -17,7 +17,7 @@ function placeFood() {                          // Places food at a random empty
 function containsSnake(x, y) {
   var i;
   for (i = 0; i < snake.length; i++) {
-    if (snake[i].x === x && snake[i].y === y) return true;
+    if (snake[i].x === x && snake[i].y === y) return true; // Validating value of snake coordinates when length increases
   }
   return false;
 }
@@ -56,10 +56,10 @@ function tick() {
   snake.unshift(head);                                        // Add new head to snake
   if (head.x === food.x && head.y === food.y) {               // Check if food eaten
     score++;
-    updateScore();
+    updateScore();                                            // Update score
     placeFood();                                              // Spawn new food
   } else {
-    snake.pop();
+    snake.pop();                                              // if food was not eaten, move forward
   }
 
   render();
