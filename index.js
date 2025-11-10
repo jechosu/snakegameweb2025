@@ -7,7 +7,7 @@ var scoreEl = document.getElementById("score"); // Reference the score
 var snake, dir, food, score, timerId; // declaring varaibles 
 
 function idx(x, y) { return y * W + x; }
-function rdx(n) { return Math.floor(Math.random() * n); }
+function rnd(n) { return Math.floor(Math.random() * n); }
 
 function placeFood() {                          // Places food at a random empty cell
   do { food = { x: rnd(W), y: rnd(H) }; }
