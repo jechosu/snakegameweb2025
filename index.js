@@ -7,7 +7,7 @@ var scoreEl = document.getElementById("score"); // Reference the score
 var snake, dir, food, score, timerId; // declaring varaibles 
 
 function idx(x, y) { return y * W + x; }
-function rdx(n) { return Math.floor(Math.random() * n); }
+function rnd(n) { return Math.floor(Math.random() * n); }
 
 function placeFood() {                          // Places food at a random empty cell
   do { food = { x: rnd(W), y: rnd(H) }; }
@@ -17,7 +17,7 @@ function placeFood() {                          // Places food at a random empty
 function containsSnake(x, y) {
   var i;
   for (i = 0; i < snake.length; i++) {
-    if (snake[i].x === x && snake[i].y === y) return true; // Validating value of snake coordinates when length increases
+    if (snake[i].x === x && snake[i].y === y) return true;
   }
   return false;
 }
@@ -56,10 +56,10 @@ function tick() {
   snake.unshift(head);                                        // Add new head to snake
   if (head.x === food.x && head.y === food.y) {               // Check if food eaten
     score++;
-    updateScore();                                            // Update score
+    updateScore();
     placeFood();                                              // Spawn new food
   } else {
-    snake.pop();                                              // if food was not eaten, move forward
+    snake.pop();
   }
 
   render();
