@@ -83,9 +83,20 @@ function render() {                       // Creates the visual for the game
 document.addEventListener("keydown", function (e) {
   var k = e.key;
   // sets direction of snake based on input of WASD control scheme
-  if (k === "w" || k === "W") setDirection(0, -1);
-  else if (k === "s" || k === "S") setDirection(0,  1);
-  else if (k === "a" || k === "A") setDirection(-1, 0);
-  else if (k === "d" || k === "D") setDirection(1,  0);
-  else if (k === "r" || k === "R") resetGame();// R to resetgame
+  if (k === "w" || k === "W") {
+    setDirection(0, -1)
+    console.log("snake move up");
+   } else if (k === "s" || k === "S") {
+    setDirection(0,  1);
+    console.log("snake move down");
+   } else if (k === "a" || k === "A") {
+    setDirection(-1, 0);
+    console.log("snake move left");
+   } else if (k === "d" || k === "D") {
+    setDirection(1,  0)
+    console.log("snake move right");
+  } else if (k === "r" || k === "R") {
+    resetGame();// R to resetgame
+    console.log("reset!");
+  }
 });
