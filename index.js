@@ -104,7 +104,6 @@ document.addEventListener("keydown", function (e) {
   if (k === "w" || k === "W") {
     if (k != [directions.length - 1]) {
       directions.push(k);
-      console.log ("direction inserted");
     }
     console.log("snake move up");
    } else if (k === "s" || k === "S") {
