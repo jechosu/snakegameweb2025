@@ -6,12 +6,16 @@ var scoreEl = document.getElementById("score"); // Reference the score
 
 var snake, dir, food, score, timerId; // declaring varaibles 
 
+var directions = [];
+var current_direction = [];
+
 function idx(x, y) { return y * W + x; }
 function rnd(n) { return Math.floor(Math.random() * n); }
 
 function placeFood() {                          // Places food at a random empty cell
   do { food = { x: rnd(W), y: rnd(H) }; }
   while (containsSnake(food.x, food.y));        // Avoid placing food on the snake
+  console.log ("new food placed!");
 }
 
 function containsSnake(x, y) {
@@ -62,6 +66,20 @@ function tick() {
     snake.pop();
   }
 
+if (directions != []) {
+  let current_direction = directions[directions.length-1];
+  directions.pop();
+  if (current_direction === "w" || current_direction === "W") {
+    setDirection(0, -1);
+  } else if (current_direction === "s" || current_direction === "S") {
+    setDirection(0,  1); 
+  } else if (current_direction === "a" || current_direction === "A") {
+    setDirection(-1, 0);
+  } else if (current_direction === "d" || current_direction === "D") {
+    setDirection(1,  0);
+  }
+}
+
   render();
 }
 
@@ -84,16 +102,25 @@ document.addEventListener("keydown", function (e) {
   var k = e.key;
   // sets direction of snake based on input of WASD control scheme
   if (k === "w" || k === "W") {
-    setDirection(0, -1)
+    if (k != [directions.length - 1]) {
+      directions.push(k);
+      console.log ("direction inserted");
+    }
     console.log("snake move up");
    } else if (k === "s" || k === "S") {
-    setDirection(0,  1);
+    if (k != [directions.length - 1]) {
+      directions.push(k);
+    }
     console.log("snake move down");
    } else if (k === "a" || k === "A") {
-    setDirection(-1, 0);
+    if (k != [directions.length - 1]) {
+      directions.push(k);
+    }
     console.log("snake move left");
    } else if (k === "d" || k === "D") {
-    setDirection(1,  0)
+    if (k != [directions.length - 1]) {
+      directions.push(k);
+    }
     console.log("snake move right");
   } else if (k === "r" || k === "R") {
     resetGame();// R to resetgame
