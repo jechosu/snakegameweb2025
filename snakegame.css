@@ -70,28 +70,6 @@ body > header > nav ul li {
 	border-style: solid;
 	
 }
-/*
-body > header nav.tabs li {
-   background-color: rgb(26, 183, 183);
-   display: block;
-   float: left;
-   height: 40px;
-   letter-spacing: 3px;
-   line-height: 40px;
-   margin-left: 0%;
-   margin-right: 2%;
-   width: 12%;
-   nav.horizontal li {
-   display: block;
-   width: 12.5%;
-   float: left;
-    .nav ul {
-    display: flex;
-    width: 100%;
-    list-style-type: none; Remove default list bullets 
-    margin: 0; Remove default margin 
-    padding: 0; Remove default padding 
-*/
 
 
 footer {
