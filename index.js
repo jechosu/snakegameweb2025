@@ -1,10 +1,11 @@
 var W = 20, H = 20;                             // Board width and height (20x20 grid)
-var TICK_MS = 90;                              // Game speed (milliseconds per move)
+var TICK_MS = 120;                              // Game speed (milliseconds per move)
 
 var boardEl = document.getElementById("board"); //Referencing the board element in the html
 var scoreEl = document.getElementById("score"); // Reference the score
 
 var snake, dir, food, score, timerId; // declaring varaibles 
+var nextDir = null;
 
 var directions = [];
 var current_direction = [];
@@ -47,6 +48,12 @@ function setDirection(nx, ny) {                                            // Co
 }
 
 function tick() {
+
+  //if theres a queued direction, set it
+  if (nextDir !== null) {
+  setDirection(nextDir.x, nextDir.y); //call a solid value for setDirection depending on variable set in keylistener
+  nextDir = null; //we then clear next dir for the next entry
+ }
   var head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
 
   var hitWall = (head.x < 0 || head.x >= W || head.y < 0 || head.y >= H);   // Wall collision
@@ -66,19 +73,7 @@ function tick() {
     snake.pop();
   }
 
-  if (directions != []) {
-  let current_direction = directions[directions.length-1];
-  directions.pop();
-  if (current_direction === "w" || current_direction === "W") {
-    setDirection(0, -1);
-  } else if (current_direction === "s" || current_direction === "S") {
-    setDirection(0,  1); 
-  } else if (current_direction === "a" || current_direction === "A") {
-    setDirection(-1, 0);
-  } else if (current_direction === "d" || current_direction === "D") {
-    setDirection(1,  0);
-  }
-}
+
 
   render();
 }
@@ -101,29 +96,25 @@ function render() {                       // Creates the visual for the game
 }
 
 document.addEventListener("keydown", function (e) {
-  var k = e.key;
+  var k = e.key.toLowerCase(); //any uppercase letter will be shrunk to lowercase
   // sets direction of snake based on input of WASD control scheme
-  if (k === "w" || k === "W") {
-    if (k != [directions.length - 1]) {
-      directions.push(k)
-    }
-    console.log("snake move up");
-   } else if (k === "s" || k === "S") {
-    if (k != [directions.length - 1]) {
-      directions.push(k);
-    }
+  if (k === "w") {
+    nextDir = {x:0, y:-1}; //setting next direction into queue to define direction
+    console.log("snake move up"); //logging in console each direction movement
+   } 
+    else if (k === "s") {
+    nextDir = {x: 0, y: 1};
     console.log("snake move down");
-   } else if (k === "a" || k === "A") {
-    if (k != [directions.length - 1]) {
-      directions.push(k);
-    }
+   } 
+    else if (k === "a") {
+    nextDir = {x: -1, y:0};
     console.log("snake move left");
-   } else if (k === "d" || k === "D") {
-    if (k != [directions.length - 1]) {
-      directions.push(k);
-    }
+   } 
+    else if (k === "d") {
+    nextDir = {x: 1, y:0};
     console.log("snake move right");
-  } else if (k === "r" || k === "R") {
+  } 
+    else if (k === "r") {
     resetGame();// R to resetgame
     console.log("reset!");
   }
