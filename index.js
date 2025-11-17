@@ -1,5 +1,5 @@
 var W = 20, H = 20;                             // Board width and height (20x20 grid)
-var TICK_MS = 120;                              // Game speed (milliseconds per move)
+var TICK_MS = 90;                              // Game speed (milliseconds per move)
 
 var boardEl = document.getElementById("board"); //Referencing the board element in the html
 var scoreEl = document.getElementById("score"); // Reference the score
@@ -66,7 +66,7 @@ function tick() {
     snake.pop();
   }
 
-if (directions != []) {
+  if (directions != []) {
   let current_direction = directions[directions.length-1];
   directions.pop();
   if (current_direction === "w" || current_direction === "W") {
@@ -96,6 +96,8 @@ function render() {                       // Creates the visual for the game
   cells[idx(food.x, food.y)] = '<div class=\"cell food\"></div>';   // Creates the food for the snake
 
   boardEl.innerHTML = cells.join("");
+
+
 }
 
 document.addEventListener("keydown", function (e) {
@@ -103,7 +105,7 @@ document.addEventListener("keydown", function (e) {
   // sets direction of snake based on input of WASD control scheme
   if (k === "w" || k === "W") {
     if (k != [directions.length - 1]) {
-      directions.push(k);
+      directions.push(k)
     }
     console.log("snake move up");
    } else if (k === "s" || k === "S") {
@@ -125,4 +127,5 @@ document.addEventListener("keydown", function (e) {
     resetGame();// R to resetgame
     console.log("reset!");
   }
+
 });
